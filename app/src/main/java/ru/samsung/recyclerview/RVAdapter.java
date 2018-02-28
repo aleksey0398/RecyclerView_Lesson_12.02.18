@@ -2,6 +2,7 @@ package ru.samsung.recyclerview;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
@@ -118,7 +119,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.FilmsViewHolder> {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(context, "Я бы открыл новое окно для \"" + film.getName() + "\" , но мне лень", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context,Main2Activity.class);
+            intent.putExtra("test",film.getName());
+            ((Activity)context).startActivity(intent);
+//            Toast.makeText(context, "Я бы открыл новое окно для \"" + film.getName() + "\" , но мне лень", Toast.LENGTH_SHORT).show();
         }
 
         void setRecord(Film film) {
